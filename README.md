@@ -1,7 +1,7 @@
 pdfminer.six
 ============
 
-[![Build Status](https://travis-ci.com/pdfminer/pdfminer.six.svg?branch=develop)](https://travis-ci.com/pdfminer/pdfminer.six)
+[![Continuous integration](https://github.com/pdfminer/pdfminer.six/actions/workflows/actions.yml/badge.svg)](https://github.com/pdfminer/pdfminer.six/actions/workflows/actions.yml)
 [![PyPI version](https://img.shields.io/pypi/v/pdfminer.six.svg)](https://pypi.python.org/pypi/pdfminer.six/)
 [![gitter](https://badges.gitter.im/pdfminer-six/Lobby.svg)](https://gitter.im/pdfminer-six/Lobby?utm_source=badge&utm_medium)
 
@@ -23,6 +23,7 @@ Features
 
 * Written entirely in Python.
 * Parse, analyze, and convert PDF documents.
+* Extract content as text, images, html or [hOCR](https://en.wikipedia.org/wiki/HOCR).
 * PDF-1.7 specification support. (well, almost).
 * CJK languages and vertical writing scripts support.
 * Various font types (Type1, TrueType, Type3, and CID) support.
@@ -39,13 +40,26 @@ How to use
 ----------
 
 * Install Python 3.6 or newer.
-* Install
+* Install pdfminer.six.
 
   `pip install pdfminer.six`
 
-* Use command-line interface to extract text from pdf:
+* (Optionally) install extra dependencies for extracting images.
 
-  `python pdf2txt.py samples/simple1.pdf`
+  `pip install 'pdfminer.six[image]'`
+
+* Use the command-line interface to extract text from pdf.
+
+  `pdf2txt.py example.pdf`
+
+* Or use it with Python. 
+
+```python
+from pdfminer.high_level import extract_text
+
+text = extract_text("example.pdf")
+print(text)
+```
 
 Contributing
 ------------
